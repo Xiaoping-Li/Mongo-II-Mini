@@ -12,17 +12,18 @@ const populate = () => {
     const allPeople = people; 
     const promises = allPeople.map(p => new Person(p).save());
     return Promise.all(promises);
-  };
+  }
+};
 
-  return populatePeople()
-    .then(() => {
-      console.log('done');
-      mongoose.disconnect()
-    })
-    .catch((err) => {
-      console.log('ERROR', err);
-      throw new Error(err);
-    });
-  };
-  
-  populate();
+return populatePeople()
+  .then(() => {
+    console.log('done');
+    mongoose.disconnect()
+  })
+  .catch((err) => {
+    console.log('ERROR', err);
+    throw new Error(err);
+  });
+};
+
+populate();
